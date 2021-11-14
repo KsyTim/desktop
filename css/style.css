@@ -1,0 +1,284 @@
+@font-face {
+  font-family: "Halter";
+  src: url("../fonts/Halter.eot");
+  src: url("../fonts/Halter.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Halter.woff2") format("woff2"),
+    url("../fonts/Halter.woff") format("woff"),
+    url("../fonts/Halter.ttf") format("truetype"),
+    url("../fonts/Halter.svg#Halter") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 20px;
+  background: -webkit-linear-gradient(40deg, #f3c680, #a1e3e2);
+  background: linear-gradient(50deg, #f3c680, #a1e3e2);
+}
+
+p {
+  font-size: 14px;
+  text-align: center;
+}
+.folder-row {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.folder {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.folder img {
+  width: 75%;
+}
+.file {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  z-index: 4;
+  margin-right: 15px;
+}
+.file img {
+  max-width: 50%;
+}
+.basket {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 100px;
+}
+.modal-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #808080ba;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  display: flex;
+  background: #607d8b;
+  max-width: 350px;
+  min-height: 200px;
+  padding: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 6;
+  text-align: center;
+}
+
+.file-to_folder {
+  position: absolute;
+  width: 20%;
+}
+
+.file-to_folder_1st {
+  top: 35%;
+  left: 20%;
+}
+
+.file-to_folder_2nd {
+  top: 35%;
+  left: 40%;
+}
+
+.file-to_folder_3rd {
+  top: 35%;
+  left: 60%;
+}
+.modal_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+}
+
+.modal_card {
+  position: absolute;
+  top: 8.5px;
+  right: 33px;
+  width: 19px;
+  height: 19px;
+}
+
+.modal_list {
+  position: absolute;
+  top: 8px;
+  right: 54px;
+  width: 20px;
+  height: 20px;
+}
+
+.img-close {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.img-default {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.img-list {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#reset {
+  position: relative;
+  z-index: 2;
+  padding: 5px 15px;
+  margin: 20px;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  background: #e24c4c;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.drop {
+  display: block;
+  position: fixed;
+  background-color: transparent;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.visible {
+  background-color: green;
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+#sortable {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sortable li {
+  margin: 0 0 10px 10px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+#sortable li::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  bottom: 0;
+  left: -40px;
+  background-image: url("../img/pdf.png");
+  width: 30px;
+  height: 37px;
+  background-size: cover;
+}
+
+/* @media only screen and (min-width: 481px) and (max-width: 576px) { */
+.file-row_media-middle {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file_media-middle {
+  width: 20%;
+}
+
+.file-img_media-middle {
+  max-width: 50%;
+}
+
+.modal_media-middle {
+  padding: 40px;
+}
+
+.modal-file_media-middle {
+  width: 50%;
+}
+
+.modal-file-img_media-middle {
+  max-width: 100%;
+}
+/* } */
+
+/* @media only screen and (min-width: 0px) and (max-width: 480px) { */
+.folder-row_media-small {
+  flex-wrap: wrap;
+}
+
+.folder_media-small {
+  width: 50%;
+}
+/* } */
